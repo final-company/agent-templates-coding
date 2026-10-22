@@ -1,0 +1,26 @@
+{
+  "name": "@finalai/coding-agent-templates",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "for agent in src/*/; do final-agents build \"$agent\" || exit 1; done",
+    "typecheck": "tsc --noEmit",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "oxfmt": "0.74.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=26.10.0"
+  },
+  "packageManager": "pnpm@12.14.0",
+  "dependencies": {
+    "@finalai/agents": "0.4.2"
+  }
+}
