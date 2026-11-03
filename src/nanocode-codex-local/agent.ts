@@ -19,5 +19,6 @@ export default defineAgent({
         credentials.platform(),
       ],
     }),
+    approvalPolicy: 'never',
   }),
 });
