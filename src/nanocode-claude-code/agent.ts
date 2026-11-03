@@ -19,6 +19,6 @@ export default defineAgent({
         credentials.platform(),
       ],
     }),
-    permissionMode: 'bypass',
+    permissionMode: 'auto',
   }),
 });
