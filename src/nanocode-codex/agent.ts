@@ -18,5 +18,7 @@ export default defineAgent({
         credentials.platform(),
       ],
     }),
+    approvalPolicy: 'untrusted',
+    approvalsReviewer: 'auto-review',
   }),
 });
