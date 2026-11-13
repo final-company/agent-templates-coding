@@ -1,24 +1,20 @@
 // Copyright 2026 Final, Inc.
 // SPDX-License-Identifier: Apache-2.0
 
-import { baseTools, credentials, defineAgent } from '@finalai/agents';
-import { serverlessNanocodeCodex } from '@finalai/agents/harnesses';
-import { computer } from './sandbox.js';
+import { defineAgent, markdown } from '@finalai/agents';
+import { FinalHarness } from '@finalai/agents/harnesses';
 
-export default defineAgent({
+export const agent = defineAgent({
   name: 'Codex',
-  description: 'A minimal coding agent on the nanocode Codex harness, working on a Final computer.',
-  tools: baseTools({ files: computer, shell: computer }),
-  harness: serverlessNanocodeCodex({
-    credentials: credentials.chain({
-      payer: 'prompting-user',
-      tryInOrder: [
-        credentials.subscription({ owner: 'payer' }),
-        credentials.apiKey({ owner: 'organization' }),
-        credentials.platform(),
-      ],
-    }),
-    approvalPolicy: 'untrusted',
-    approvalsReviewer: 'auto-review',
-  }),
+  description: 'A coding agent on the Codex harness.',
+  instructions: markdown('./instructions.md', { from: import.meta.url }),
+  require: {
+    // No model is recommended: whoever starts the agent picks one.
+    harness: {
+      permissionMode: 'review',
+      recommended: { harness: FinalHarness.NanocodeCodex },
+    },
+    compute: { files: 'write', shell: 'execute' },
+    integrations: { final: { description: "Final's tools and the project's connected apps." } },
+  },
 });
