@@ -12,7 +12,7 @@ export const agent = defineAgent({
     // No model is recommended: whoever starts the agent picks one.
     harness: {
       permissionMode: 'review',
-      recommended: { harness: FinalHarness.ServerlessNanocodeCodex },
+      recommended: { harness: FinalHarness.NanocodeCodex },
     },
     compute: { files: 'write', shell: 'execute' },
     integrations: { final: { description: "Final's tools and the project's connected apps." } },

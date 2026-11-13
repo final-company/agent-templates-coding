@@ -4,8 +4,8 @@ Minimal coding agents built with the `@finalai/agents` SDK. Each adds as little 
 
 | Module | Agent | Permission ceiling | Recommended harness |
 | --- | --- | --- | --- |
-| [`src/nanocode-claude-code/agent.ts`](src/nanocode-claude-code/agent.ts) | Claude Code | `auto` | `serverless-nanocode-claude` |
-| [`src/nanocode-codex/agent.ts`](src/nanocode-codex/agent.ts) | Codex | `review` | `serverless-nanocode-codex` |
+| [`src/nanocode-claude-code/agent.ts`](src/nanocode-claude-code/agent.ts) | Claude Code | `auto` | `FinalHarness.NanocodeClaude` |
+| [`src/nanocode-codex/agent.ts`](src/nanocode-codex/agent.ts) | Codex | `review` | `FinalHarness.NanocodeCodex` |
 
 Each module exports `agent`, a definition that states what the agent needs and nothing about where it runs:
 
