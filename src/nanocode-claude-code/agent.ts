@@ -7,6 +7,7 @@ import { FinalHarness } from '@finalai/agents/harnesses';
 export const agent = defineAgent({
   name: 'Claude Code',
   description: 'A coding agent on the Claude Code harness.',
+  avatar: { url: 'https://images.final.ai/images/aa7c9625-a6d3-4cb6-94bc-cd24b14f99ba.png' },
   instructions: markdown('./instructions.md', { from: import.meta.url }),
   require: {
     // No model is recommended: whoever starts the agent picks one.
